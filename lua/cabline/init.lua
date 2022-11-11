@@ -67,7 +67,12 @@ local function tabline()
 end
 
 local function setup(options)
- _G.tabline = tabline
+  if (options.convert_selection) then
+    _G.tabline = tabline
+  end
+  if (options.tabline_override) then
+    _G.tabline = options.tabline_override
+  end
  vim.opt.tabline = '%!v:lua.tabline()';
 end
 
