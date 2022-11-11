@@ -1,4 +1,7 @@
 # cabline.nvim
+
+<img width="1385" alt="Screen Shot 2022-11-02 at 10 39 00" src="https://user-images.githubusercontent.com/11034778/201411831-118369d6-a595-4e2d-b387-396deed70b39.png">
+
 Custom tabline plugin for adding functionality to your projects. Instead of setting 
 up buffer tabs, set up custom display elements for your Neovim!
 
