@@ -1,4 +1,4 @@
-local lib = require('utils').lib
+local lib = require('../utils').lib
 
 local function get_dec_line(val)
   local converted_decimal = tonumber(val, 16)
