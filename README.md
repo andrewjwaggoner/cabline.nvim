@@ -5,6 +5,9 @@
 **C**ustom t**abline** plugin for adding functionality to your projects. Instead of setting 
 up buffer tabs, set up custom display elements for your Neovim!
 
+This is a personal project to customize _my own_ tab line preferences. The structure is intended to let 
+you add your own methods and displays to fit _your_ workflow.
+
 ## How to Install
 
 Packer:
