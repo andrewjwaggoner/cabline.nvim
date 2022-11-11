@@ -68,4 +68,9 @@ function M.tabline()
   decbinaryline(selection)
 end
 
+function M.setup(options)
+ _G.tabline = M.tabline
+ vim.opt.tabline = '%!v:lua.tabline()';
+end
+
 return M
