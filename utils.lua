@@ -1,9 +1,4 @@
-local M = {
-  lib = {}
-}
-
--- utility functions
-function M.lib.get_visual_selection()
+local function get_visual_selection()
   local modeInfo = vim.api.nvim_get_mode()
   local mode = modeInfo.mode
 
@@ -58,11 +53,11 @@ function M.lib.get_visual_selection()
   return table.concat(selection, '')
 end
 
-function M.lib.mod(a, b)
+local function mod(a, b)
     return a - (math.floor(a/b)*b)
 end
 
-function M.lib.decimal_to_hex(val)
+local function decimal_to_hex(val)
     local hexstr = "0123456789ABCDEF"
     local neg = false
     local num = tonumber(val)
@@ -77,7 +72,7 @@ function M.lib.decimal_to_hex(val)
     end
 
     while num > 0 do
-        local n = M.lib.mod(num, 16)
+        local n = mod(num, 16)
         result = string.sub(hexstr, n + 1, n + 1) .. result
         num = math.floor(num / 16)
     end
@@ -86,7 +81,7 @@ function M.lib.decimal_to_hex(val)
     return result
 end
 
-function M.lib.hexchar_to_binary(str)
+local function hexchar_to_binary(str)
     str = string.upper(str)
     local map = {
       ['0'] = '0000',
@@ -111,13 +106,18 @@ function M.lib.hexchar_to_binary(str)
     return binary
 end
 
-function M.lib.hex_to_binary(str)
+local function hex_to_binary(str)
   local hex = ''
   for i = 1, #str do
     local char = str:sub(i,i)
-      hex = hex .. M.lib.hexchar_to_binary(char) .. ' '
+      hex = hex .. hexchar_to_binary(char) .. ' '
   end
   return hex:gsub('%s$', ''):gsub('%s+', ' ') -- whitespace removal
 end
 
-return M
+return {
+  decimal_to_hex = decimal_to_hex,
+  get_visual_selection = get_visual_selection,
+  hex_to_binary = hex_to_binary,
+  hexchar_to_binary = hexchar_to_binary,
+}
