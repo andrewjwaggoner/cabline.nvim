@@ -67,6 +67,8 @@ local function tabline()
 end
 
 local function setup(options)
+ _G.tabline = tabline
+ vim.opt.tabline = '%!v:lua.tabline()';
 end
 
 return {
